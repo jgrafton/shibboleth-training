@@ -7,7 +7,7 @@ ARG plugin_args="--noPrompt --noRebuild --truststore ${truststore}"
 RUN /bin/curl -Lo ${truststore} https://shibboleth.net/downloads/PGP_KEYS && \
     ${idp_home}/bin/plugin.sh ${plugin_args} -I net.shibboleth.oidc.common && \
 #    ${idp_home}/bin/plugin.sh ${plugin_args} -I net.shibboleth.idp.plugin.oidc.config && \
-#    ${idp_home}/bin/plugin.sh ${plugin_args} -I net.shibboleth.idp.plugin.authn.duo.nimbus && \
+    ${idp_home}/bin/plugin.sh ${plugin_args} -I net.shibboleth.idp.plugin.authn.duo.nimbus && \
 #    ${idp_home}/bin/plugin.sh ${plugin_args} -I net.shibboleth.idp.plugin.oidc.op && \
     ${idp_home}/bin/plugin.sh ${plugin_args} -I net.shibboleth.plugin.storage.jdbc
 
