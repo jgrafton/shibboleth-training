@@ -8,54 +8,54 @@ fi
 
 if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]; then
   #kill, if running, and remove idp container
-  docker ps | grep test-compose_idp &>/dev/null
+  docker ps | grep idp &>/dev/null
   if [  $? == '0' ]; then
     #get container ID
-    export contid=$(docker ps | grep test-compose_idp | cut -f 1 -d ' ')
+    export contid=$(docker ps | grep idp | cut -f 1 -d ' ')
     docker kill ${contid} &>/dev/null
     docker rm ${contid} &>/dev/null
   else
     #check if an old container is present, rm if needed
-    docker container ls -a | grep test-compose_idp &>/dev/null
+    docker container ls -a | grep idp &>/dev/null
     if [  $? == '0' ]; then
         #get container ID
-          export contid=$(docker container ls -a | grep test-compose_idp | cut -f 1 -d ' ')
+          export contid=$(docker container ls -a | grep idp | cut -f 1 -d ' ')
           docker kill ${contid} &>/dev/null
           docker rm ${contid} &>/dev/null
     fi
   fi
 
   #kill, if running, and remove data container
-  docker ps | grep test-compose_data &>/dev/null
+  docker ps | grep data &>/dev/null
   if [  $? == '0' ]; then
     #get container ID
-    export contid2=$(docker ps | grep test-compose_data | cut -f 1 -d ' ')
+    export contid2=$(docker ps | grep data | cut -f 1 -d ' ')
     docker kill ${contid2} &>/dev/null
     docker rm ${contid2} &>/dev/null
   else
     #check if an old container is present, rm if needed
-    docker container ls -a | grep test-compose_data &>/dev/null
+    docker container ls -a | grep data &>/dev/null
     if [  $? == '0' ]; then
         #get container ID
-          export contid2=$(docker container ls -a | grep test-compose_data | cut -f 1 -d ' ')
+          export contid2=$(docker container ls -a | grep data | cut -f 1 -d ' ')
           docker kill ${contid2} &>/dev/null
           docker rm ${contid2} &>/dev/null
     fi
   fi
 
   #kill, if running, and remove sp container
-  docker ps | grep test-compose_sp &>/dev/null
+  docker ps | grep sp &>/dev/null
   if [  $? == '0' ]; then
     #get container ID
-    export contid2=$(docker ps | grep test-compose_sp | cut -f 1 -d ' ')
+    export contid2=$(docker ps | grep sp | cut -f 1 -d ' ')
     docker kill ${contid2} &>/dev/null
     docker rm ${contid2} &>/dev/null
   else
     #check if an old container is present, rm if needed
-    docker container ls -a | grep test-compose_sp &>/dev/null
+    docker container ls -a | grep sp &>/dev/null
     if [  $? == '0' ]; then
         #get container ID
-          export contid2=$(docker container ls -a | grep test-compose_sp | cut -f 1 -d ' ')
+          export contid2=$(docker container ls -a | grep sp | cut -f 1 -d ' ')
           docker kill ${contid2} &>/dev/null
           docker rm ${contid2} &>/dev/null
     fi
@@ -63,9 +63,9 @@ if [[ "$response" =~ ^([yY][eE][sS]|[yY])+$ ]]; then
 
 
   #remove images
-  docker rmi -f test-compose_idp &>/dev/null
-  docker rmi -f test-compose_data &>/dev/null
-  docker rmi -f test-compose_sp &>/dev/null
+  docker rmi -f idp &>/dev/null
+  docker rmi -f data &>/dev/null
+  docker rmi -f sp &>/dev/null
 
 else
     echo "Terminating..."
