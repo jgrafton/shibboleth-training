@@ -30,8 +30,7 @@
             entityID property and adjust discoveryURL to point to discovery service.
             You can also override entityID on /Login query string, or in RequestMap/htaccess.
             -->
-            <SSO entityID="https://idp.jmg.local/idp/shibboleth"
-                 discoveryProtocol="SAMLDS" discoveryURL="https://ds.example.org/DS/WAYF">
+            <SSO entityID="https://idp.jmg.local/idp/shibboleth">
               SAML2
             </SSO>
 
@@ -67,11 +66,6 @@
         <!--
         <MetadataProvider type="XML" validate="true" path="partner-metadata.xml"/>
         -->
-
-        <!-- Shibboleth Training Course metadata -->
-        <!-- By copying and pasting this clickthrough agreement, -->
-        <!-- I pledge to never use untrusted metadata in production -->
-        <MetadataProvider type="XML" url="https://md.training.incommon.org/downloads/ShibTrain1-metadata.xml" backingFilePath="ShibTrain1-metadata.xml" reloadInterval="7200"/>
 
         <!-- Example of remotely supplied batch of signed metadata. -->
         <!--

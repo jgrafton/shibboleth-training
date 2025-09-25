@@ -70,6 +70,12 @@
 	    metadataURL='https://md.training.incommon.org/downloads/ShibTrain1-metadata.xml'
 	    backingFile='/opt/shibboleth-idp/metadata/ShibTrain1-metadata.xml'/>
 
+    <MetadataProvider id='MySP'
+	    xsi:type='FileBackedHTTPMetadataProvider'
+	    xmlns='urn:mace:shibboleth:2.0:metadata'
+	    metadataURL='https://sp.jmg.local:8443/Shibboleth.sso/Metadata'
+	    backingFile='/opt/shibboleth-idp/metadata/my-sp-metadata.xml'/>
+
     <!--
     Example file metadata provider.  Use this if you want to load metadata
     from a local file. You use this if you have some local SPs which are not
