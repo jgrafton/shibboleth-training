@@ -10,7 +10,7 @@
     -->
 
     <!-- The ApplicationDefaults element is where most of Shibboleth's SAML bits are defined. -->
-    <ApplicationDefaults entityID="https://sptest.example.edu/shibboleth"
+    <ApplicationDefaults entityID="https://sp.jmg.local/shibboleth"
         REMOTE_USER="eppn subject-id pairwise-id persistent-id"
         cipherSuites="DEFAULT:!EXP:!LOW:!aNULL:!eNULL:!DES:!IDEA:!SEED:!RC4:!3DES:!kRSA:!SSLv2:!SSLv3:!TLSv1:!TLSv1.1">
 
@@ -30,7 +30,7 @@
             entityID property and adjust discoveryURL to point to discovery service.
             You can also override entityID on /Login query string, or in RequestMap/htaccess.
             -->
-            <SSO entityID="https://idp.example.edu/idp/shibboleth"
+            <SSO entityID="https://idp.training.incommon.org/idp/shibboleth"
                  discoveryProtocol="SAMLDS" discoveryURL="https://ds.example.org/DS/WAYF">
               SAML2
             </SSO>
@@ -67,6 +67,11 @@
         <!--
         <MetadataProvider type="XML" validate="true" path="partner-metadata.xml"/>
         -->
+
+        <!-- Shibboleth Training Course metadata -->
+        <!-- By copying and pasting this clickthrough agreement, -->
+        <!-- I pledge to never use untrusted metadata in production -->
+        <MetadataProvider type="XML" url="https://md.training.incommon.org/downloads/ShibTrain1-metadata.xml" backingFilePath="ShibTrain1-metadata.xml" reloadInterval="7200"/>
 
         <!-- Example of remotely supplied batch of signed metadata. -->
         <!--
